@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Question> _question = [
+  final List<Question> _question = [
     Question(
       id: '10',
       title: 'What is 2 + 2 ?',
@@ -47,6 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
               indexAction: index,
               question: _question[index].title,
               totalQuestions: _question.length,
+            ),
+            const Divider(
+              color: neutral,
             )
           ],
         ),

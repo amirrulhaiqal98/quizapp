@@ -11,4 +11,4 @@ const Color incorrect = Color.fromARGB(0, 164, 28, 16);
 const Color neutral = Color.fromARGB(0, 196, 199, 196);
 
 //set color for background
-const Color background = Colors.blueAccent;
+Color background = Colors.blue.shade900;
