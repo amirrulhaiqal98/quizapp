@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 import '../models/question_model.dart'; //our question model
 import '../widgets/question_widget.dart'; //question widget
+import '../widgets/next_button.dart';
 
 //create a homeScreen widget
 
@@ -27,6 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   // //create index loop thought _questions
   int index = 0;
+
+  //create a function to  display the  next question
+  void nextQuestion() {
+    if (index == _question.length - 1) {
+      return;
+    } else {
+      setState(() {
+        index++; //when the index will change to 1. rebuild the app
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     //change background color
@@ -49,11 +62,20 @@ class _HomeScreenState extends State<HomeScreen> {
               totalQuestions: _question.length,
             ),
             const Divider(
-              color: neutral,
+              color: Colors.white,
             )
           ],
         ),
       ),
+
+      //use the floating action button
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: NextButton(
+          nextQuestion: nextQuestion, //the above function
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
