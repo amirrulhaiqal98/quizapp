@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import '../constant.dart';
+import '../constant.dart';
 
 class OptionCard extends StatelessWidget {
   const OptionCard({Key? key, required this.option, required this.color})
@@ -7,6 +7,7 @@ class OptionCard extends StatelessWidget {
 
   final String option;
   final Color color;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -15,8 +16,10 @@ class OptionCard extends StatelessWidget {
         title: Text(
           option,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 22.0,
+            //color ratio
+            color: color.red != color.green ? Colors.white : Colors.black,
           ),
         ),
       ),
