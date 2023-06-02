@@ -4,6 +4,7 @@ import '../models/question_model.dart';
 import '../widgets/question_widget.dart';
 import '../widgets/next_button.dart';
 import '../widgets/option_card.dart';
+import '../widgets/result_box.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,6 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void nextQuestion() {
     if (index == _question.length - 1) {
+      //this is the block when game end
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (ctx) => ResultBox(
+                result: score, //total points the user got
+                questionLength: _question.length, //how of how many questions
+              ));
       return;
     } else {
       if (isPressed) {
