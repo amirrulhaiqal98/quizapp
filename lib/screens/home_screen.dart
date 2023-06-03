@@ -39,7 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
           barrierDismissible: false,
           builder: (ctx) => ResultBox(
                 result: score, //total points the user got
-                questionLength: _question.length, //how of how many questions
+                questionLength: _question.length,
+                onPressed: startOver, //how of how many questions
               ));
       return;
     } else {
@@ -65,12 +66,27 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       if (value == true) {
         score++;
-        setState(() {
-          isPressed = true;
-          isAlreadySelected = true;
-        });
       }
+      setState(() {
+        isPressed = true;
+        isAlreadySelected = true;
+      });
     }
+  }
+
+  // create a function to start over
+  void startOver() {
+    setState(() {
+      //to loop through _questions
+      index = 0;
+      //create a score variable
+      score = 0;
+      //create a boolean value to check if the user has clicked
+      isPressed = false;
+      //function to display next questions
+      bool isAlreadySelected = false;
+    });
+    Navigator.pop(context);
   }
 
   @override

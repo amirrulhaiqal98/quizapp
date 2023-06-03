@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 class ResultBox extends StatelessWidget {
-  const ResultBox(
-      {Key? key, required this.result, required this.questionLength})
-      : super(key: key);
+  const ResultBox({
+    Key? key,
+    required this.result,
+    required this.questionLength,
+    required this.onPressed,
+  }) : super(key: key);
 
   final int result;
   final int questionLength;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +48,20 @@ class ResultBox extends StatelessWidget {
                       ? 'Try Again'
                       : 'Great',
               style: const TextStyle(color: Colors.white),
+            ),
+            const SizedBox(
+              height: 25.0,
+            ),
+            GestureDetector(
+              onTap: onPressed,
+              child: const Text(
+                'Start Over',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20.0,
+                  letterSpacing: 1.0,
+                ),
+              ),
             )
           ],
         ),
