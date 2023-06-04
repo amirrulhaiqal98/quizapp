@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizzapp/models/question_model.dart';
+// import 'package:quizzapp/models/question_model.dart';
 import './screens/home_screen.dart'; // import file screen
 import './models/db_connection.dart';
 

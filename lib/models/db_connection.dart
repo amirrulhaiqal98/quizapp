@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import './question_model.dart';
 import 'dart:convert';
@@ -17,8 +17,8 @@ class DBconnect {
   }
 
   // fetch data from database
-  Future<void> fetchQuestion() async {
-    http.get(url).then((response) {
+  Future<List<Question>> fetchQuestion() async {
+    return http.get(url).then((response) {
       // the then method resturn a response which is out data
       // to whats inside we have to decode it first
       var data = json.decode(response.body) as Map<String, dynamic>;
@@ -33,8 +33,8 @@ class DBconnect {
         // add to newQuestions
         newQuestions.add(newQuestion);
       });
-
-      print(newQuestions);
+      return newQuestions;
+      // print(newQuestions);
     });
   }
 }
